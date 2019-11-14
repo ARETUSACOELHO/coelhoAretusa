@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns = "http://w3.org/1999/xhtml"
+xmlns:th= "http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<title>Local dos Eventos</title>
+</head>
+<body>
+<h1>Cadastrar Local dos Eventos</h1><br>
+
+
+<nav class="navbar navbar-inverse">
+<ul class="nav navbar-nav"> 
+<li><a href="/Form">Cadastrar Local</a></li>
+<li><a href="/Local-lista">Listar Local</a></li>
+</ul>
+</nav>
+
+    <form action="/salvarLocal" method="post" th:object="${local}">
+      <input type="hidden" th:field="*{codigo}"/>
+    <fieldset>
+        
+        <fieldset class="grupo">
+    <label for="inputAddress">Endereço</label >
+    <input type="text" id="Endereço" name= "endereço" th:field="*{endereço}"style="width: 60em" value="">
+  
+  </fieldset>
+  <fieldset>
+  <div class="grupo">
+            <div class="campo">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" th:field="*{cidade}" style="width: 30em" value="">
+            </div>
+            </div>
+            <div class="campo">
+                <label for="estado">Estado</label>
+                <select name="estado" id="estado" th:field="*{estado}">
+                    <option value="">--</option>
+                     <option>Selecione...</option>
+                  <option value="AC">AC</option>
+                  <option value="AL">AL</option>
+                  <option value="AP">AP</option>
+                  <option value="AM">AM</option>
+                  <option value="BA">BA</option>
+                  <option value="CE">CE</option>
+                  <option value="ES">ES</option>
+                  <option value="DF">DF</option>
+                  <option value="MA">MA</option>
+                  <option value="MT">MT</option>
+                  <option value="MS">MS</option>
+                  <option value="MG">MG</option>
+                  <option value="PA">PA</option>
+                  <option value="PB">PB</option>
+                  <option value="PR">PR</option>
+                  <option value="PE">PE</option>
+                  <option value="PI">PI</option>
+                  <option value="RJ">RJ</option>
+                  <option value="RN">RN</option>
+                  <option value="RS">RS</option>
+                  <option value="RO">RO</option>
+                  <option value="RR">RR</option>
+                  <option value="SC">SC</option>
+                  <option value="SP">SP</option>
+                  <option value="SE">SE</option>
+                  <option value="TO">TO</option>
+              </select> 
+            </div>
+        </fieldset>
+     
+        <div class="grupo">
+    <label for="capacidade">Capacidade</label >
+    <input type="text"  id="Capacidade" th:field="*{capacidade}"style="width: 20em" value="">
+  </div>
+  </fieldset>
+  <fieldset>
+    <div class="grupo">
+    <label for="coberto">Local coberto</label >
+    <div>
+  <input type="radio" id="sim" name="opção" th:field="*{coberto}">
+  <label for="sim">Sim</label>
+</div>
+
+<div>
+  <input type="radio" id="não" name="opção" th:field="*{coberto}">
+  <label for="não">Não</label>
+</div>
+  </div>
+  </fieldset>
+  <fieldset>
+
+        <br>
+        <button type="submit" name="submit">Enviar</button>
+          <a href="/listarLocal" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Voltar para a lista</a>
+    </fieldset>
+</form>
+</body>
+</html>
