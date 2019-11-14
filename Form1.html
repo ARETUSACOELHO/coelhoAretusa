@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns = "http://w3.org/1999/xhtml"
+xmlns:th= "http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<title>Eventos</title>
+</head>
+<body>
+<h1>Cadastro de Eventos</h1><br>
+
+
+<nav class="navbar navbar-inverse">
+<ul class="nav navbar-nav"> 
+<li><a href="/Form1">Cadastrar eventos</a></li>
+<li><a href="/Eventos-lista">Listar eventos</a></li>
+</ul>
+</nav>
+
+
+    <form action="/salvarEvento" method="post" th:object="${evento}">
+      <input type="hidden" th:field="*{codigo}"/>
+      
+   
+        <fieldset class="grupo">
+            <div class="campo">
+                <label for="nome">Nome da Festa</label>
+                <input type="text" id="nome" name="nome" th:field="*{nome}"style="width: 35em" value="" >          
+                  </div>
+        </fieldset>
+        <fieldset class="grupo">
+    <label for="inputAddress">Local do Evento</label >
+    <input type="text" id="Endereço" name= "endereço" th:field="*{local}"style="width: 35em" value="">
+  
+  </fieldset>
+  <fieldset>
+  <div class="grupo">
+            <div class="campo">
+                <label for="data">Data</label>
+                <input type="date" id="data" name="data" th:field="*{data}">
+            </div>
+             <div class="grupo">
+            <div class="campo">
+              <label for="appt">Horário:</label>
+<input type="time" id="appt" name="appt"
+       min="09:00" max="18:00" required th:field="*{hora}">
+                
+            </div>
+            </div>
+           
+  </div>
+  </fieldset>
+  <fieldset>
+
+        <br>
+        <button type="submit" name="submit">Enviar</button>
+        <a href="/listarEventos" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Voltar para a lista</a>
+    </fieldset>
+</form>
+</body>
+</html>
