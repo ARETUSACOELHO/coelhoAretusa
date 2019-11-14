@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns = "http://w3.org/1999/xhtml"
+xmlns:th= "http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<title>Convidados</title>
+</head>
+<body>
+<h1>Cadastrar Convidado</h1><br>
+
+
+<nav class="navbar navbar-inverse">
+<ul class="nav navbar-nav"> 
+<li><a href="/Form2">Cadastrar Convidado</a></li>
+<li><a href="/listarConvidados">Listar Convidado</a></li>
+</ul>
+</nav>
+
+    <form action="/salvarConvidado" method="post" th:object="${convidado}">
+      <input type="hidden" th:field="*{codigo}"/>
+      
+   
+        <div>
+        <fieldset class="grupo">
+    <label for="nomeconvidado">Nome do Convidado</label >
+    <input type="text" id="nome" name= "nomeconvidado" th:field="*{nomeconvidado}" style="width: 50em" value="">
+  </fieldset>
+</div>
+  <fieldset>
+    <fieldset>
+  <div class="grupo">
+            <div class="campo">
+                <label for="evento">Evento</label>
+                <input type="text" id="evento" name="evento" th:field="*{evento}" style="width: 40em" value="">
+            </div>
+            </div>
+            </fieldset>
+           
+        <br>
+        <button type="submit" name="submit">Enviar</button>
+       
+      <hr/>
+      <a href="/listarConvidados" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Voltar para a lista</a>
+    </fieldset>
+</form>
+</body>
+</html>
