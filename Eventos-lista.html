@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="htpp://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<title> Eventos: : Adicionar</title>
+</head>
+<body>
+<h2>Lista de Eventos</h2>
+
+<nav class="navbar navbar-inverse">
+<ul class="nav navbar-nav"> 
+<li><a href="/Form1">Cadastrar Eventos</a></li>
+<li><a href="/Eventos-lista">Listar Eventos</a></li>
+</ul>
+</nav>
+<div class="container col-sm-12 col-md-6 col- md-offset-2">
+<table class="table table-dark">
+
+
+<tr>
+<th>Nome da Festa</th>
+<th>Local do Evento</th>
+<th>Data</th>
+<th>Horário</th>
+</tr>
+
+<tr th:each="even. : ${lista}">
+<td th:text="${even..nomefesta}"></td>
+<td th:text="${even.localevento}"></td>
+<td th:text="${even.data}"></td>
+<td th:text="${even.horário}">
+                 
+  <ul class="pager">
+  
+  	
+    <li><a th:href="@{/editarEvento(codigo=${even.codigo})}">Editar</a></li>
+    <li><a th:href="@{/removerEvento(codigo=${even.codigo})}">Remover</a></li>
+  </ul>
+
+</tr>
+</table>
+<a href="/exibirForm1" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Novo evento</a>
+</div>
+<hr/>
+</body>
+</html>
